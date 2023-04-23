@@ -1,0 +1,45 @@
+.dot_list:hover{
+    cursor: pointer;
+}
+
+.watch_list{
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.watch_list p{
+    margin: 0;
+    line-height: 30px;
+
+}
+.dot_list{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgb(224,200,200);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}
+.dot_list div{
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: black;
+
+}
+.release_date{
+    width: 85%;
+    height: 80%;
+}
