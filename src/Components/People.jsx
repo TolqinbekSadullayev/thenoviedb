@@ -89,7 +89,7 @@ export default function Example() {
             );
           })}
       </div>
-      <Pagination total={100} defaultCurrent={son}></Pagination>
+      <Pagination size="large" total={5000} />
     </div>
   );
 }
