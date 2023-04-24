@@ -24,15 +24,22 @@ export default function Example() {
     }
     i18n.changeLanguage(til);
   };
-  let week ="day"
-  function Tugmaday(week){
-        week="week"
-        console.log(week);
+
+
+
+
+  const [week, SetWeek]=useState("day")
+  function Tugmaday(){
+        SetWeek("day")
   }
   function Tugmaweek(week){
-    week="day"
-    console.log(week);
+    SetWeek("week")
   }
+
+
+
+
+
 
   const responsive = {
     superLargeDesktop: {
@@ -61,7 +68,7 @@ export default function Example() {
           `${process.env.REACT_APP_BASE_UMUMIY_URL}trending/all/${week}?api_key=${process.env.REACT_APP_API_KEY}`
         )
         .then((ress) => {
-          console.log(ress.data.results);
+          // console.log(ress.data.results);
           ress.data.results.map((item, index) => {
             item.status = false;
           });
@@ -72,16 +79,19 @@ export default function Example() {
         });
     }
     getData();
-  }, []);
+  });
 
   return (
     <div className="container my-5 ">
       <div className="p-3 ">
-        <div className="d-flex">
+        <div className="d-flex my-2">
         <h2 className="ms-0 me-3">Trending</h2>
-          <div className="d-flex  mt-2 alar">
-            <div><h5><a onClick={()=>Tugmaweek()} className="ahrf ms-2" >Today</a></h5></div>
-            <div><h5><a onClick={()=>Tugmaday()} className="ahrf ms-3" >This week</a></h5></div>
+          <div className="d-flex  mt-2 my-2 alar">
+            <div>
+              <h5><a onClick={()=>Tugmaweek()} className="ahrf text-center ms-2" >Today</a></h5>
+            <div className="background "></div>
+            </div>
+            <div><h5><a onClick={()=>Tugmaday()} className="ahrf text-center ms-3" >This week</a></h5></div>
           </div>
         </div>
       <Carousel responsive={responsive}>

@@ -27,7 +27,7 @@ export default function Footer() {
     i18n.changeLanguage(til);
   };
   return (
-    <div className='footerr fixed-bottom'>
+    <div className='footerr'>
         <div className=''>
         <MDBFooter className='text-white text-center'>
       <MDBContainer className='p-4'>
