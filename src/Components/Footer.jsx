@@ -101,7 +101,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href='#!' className='text-white'>
+                <a href='https://t.me/tolqin_sadullayev/' className='text-white'>
                 {t("footer14")}
                 </a>
               </li>

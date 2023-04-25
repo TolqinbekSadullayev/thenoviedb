@@ -30,10 +30,10 @@ export default function Example() {
 
   const [week, SetWeek]=useState("day")
   function Tugmaday(){
-        SetWeek("day")
+        SetWeek("week")
   }
   function Tugmaweek(week){
-    SetWeek("week")
+    SetWeek("day")
   }
 
 
@@ -79,19 +79,18 @@ export default function Example() {
         });
     }
     getData();
-  });
-
+  },[week]);
   return (
     <div className="container my-5 ">
       <div className="p-3 ">
         <div className="d-flex my-2">
-        <h2 className="ms-0 me-3">Trending</h2>
+        <h2 className="ms-0 me-3">{t("trend")}</h2>
           <div className="d-flex  mt-2 my-2 alar">
             <div>
-              <h5><a onClick={()=>Tugmaweek()} className="ahrf text-center ms-2" >Today</a></h5>
+              <h5><a onClick={()=>Tugmaweek()} className="ahrf text-center ms-2" >{t("today")}</a></h5>
             <div className="background "></div>
             </div>
-            <div><h5><a onClick={()=>Tugmaday()} className="ahrf text-center ms-3" >This week</a></h5></div>
+            <div><h5><a onClick={()=>Tugmaday()} className="ahrf text-center ms-3" >{t("tweek")}</a></h5></div>
           </div>
         </div>
       <Carousel responsive={responsive}>

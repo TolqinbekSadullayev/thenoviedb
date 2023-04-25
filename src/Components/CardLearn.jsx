@@ -24,7 +24,7 @@ export default function CardLearn() {
   useEffect(() => {
     axios
       .get(
-        `${process.env.REACT_APP_BASE_URL}/${id.id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
+        `${process.env.REACT_APP_BASE_URL}/${id.id}?api_key=${process.env.REACT_APP_API_KEY}&language=${t("Tili")}`
       )
       .then((ress) => {
         setObj(ress.data);

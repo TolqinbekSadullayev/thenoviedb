@@ -27,7 +27,7 @@ export default function Example() {
     const [movie1, setMovie1] =useState([])
     useEffect(()=> {
         async function getData(){
-            await axios.get(`${process.env.REACT_APP_BASE_URL}/top_rated?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`)
+            await axios.get(`${process.env.REACT_APP_BASE_URL}/top_rated?api_key=${process.env.REACT_APP_API_KEY}&language=${t("Tili")}&page=1`)
             .then(ress => {
                 console.log(ress.data.results);
                 ress.data.results.map((item, index)=> {

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { t } from "i18next";
 import { useTranslation } from "react-i18next";
 import { Pagination } from "antd";
+// import 'antd/dist/antd.min.css';
 
 
 export default function Example() {
@@ -25,18 +26,20 @@ export default function Example() {
     }
     i18n.changeLanguage(til);
   };
-
+   
+  const PAGE_SIZE = 1
   const linkStyle = {
     textDecoration: "none",
     color: 'black'
   };
   const [movie, setMovie] = useState([]);
   const [movie1, setMovie1] = useState([]);
+  const [page , setPage] = useState(1)
   useEffect(() => {
     async function getData() {
       await axios
         .get(
-          `${process.env.REACT_APP_BASE_PERSON_URL}/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`
+          `${process.env.REACT_APP_BASE_PERSON_URL}/popular?api_key=${process.env.REACT_APP_API_KEY}&language=${t("Tili")}&page=${page}`
         )
         .then((ress) => {
           console.log(ress.data.results);
@@ -50,7 +53,7 @@ export default function Example() {
         });
     }
     getData();
-  }, []);
+  }, [page]);
 
   return (
     <div className="container my-5">
@@ -89,7 +92,7 @@ export default function Example() {
             );
           })}
       </div>
-      <Pagination size="large" total={5000} />
+      <Pagination size="large" total={500} pageSize={PAGE_SIZE} current={page} onChange={(page)=> setPage(page)} />
     </div>
   );
 }

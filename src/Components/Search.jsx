@@ -60,7 +60,7 @@ export default function Search() {
     // console.log(obj.results);
   return (
     <div
-      className="container my-5 izla "
+      className="container my-5 izla"
       style={{
         backgroundImage: `url(${
           process.env.REACT_APP_IMG_URL+obj
@@ -71,11 +71,11 @@ export default function Search() {
       }}
     >
       {
-        <div className="colorbg">
+        <div className="colorbg ">
           <div className="qidir">
           <h1 className="ms-4 ">{t("S2_dobro")}</h1>
           <h2 className="ms-4 ">{t("S2_pasti")}</h2>
-          <div className="qidir2">
+          <div className="qidir2 ">
             <input
               type="text"
               tabIndex={1}

@@ -25,6 +25,22 @@ export default function Example() {
     i18n.changeLanguage(til);
   };
 
+
+
+
+  const [week, SetWeek]=useState("day")
+  function Tugmaday(){
+        SetWeek("day")
+  }
+  function Tugmaweek(){
+    SetWeek("week")
+  }
+
+
+
+
+
+
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -49,10 +65,10 @@ export default function Example() {
     async function getData() {
       await axios
         .get(
-          `${process.env.REACT_APP_BASE_TV_URL}/1399//videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
+          `${process.env.REACT_APP_BASE_UMUMIY_URL}trending/all/${week}?api_key=${process.env.REACT_APP_API_KEY}`
         )
         .then((ress) => {
-          console.log(ress.data.results);
+          // console.log(ress.data.results);
           ress.data.results.map((item, index) => {
             item.status = false;
           });
@@ -63,10 +79,21 @@ export default function Example() {
         });
     }
     getData();
-  }, []);
+  },[week]);
 
   return (
     <div className="container my-5 ">
+      <div className="p-3 ">
+        <div className="d-flex my-2">
+        <h2 className="ms-0 me-3">{t("trend")}</h2>
+          <div className="d-flex  mt-2 my-2 alar">
+            <div>
+              <h5><a onClick={()=>Tugmaweek()} className="ahrf text-center ms-2" >{t("today")}</a></h5>
+            <div className="background "></div>
+            </div>
+            <div><h5><a onClick={()=>Tugmaday()} className="ahrf text-center ms-3" >{t("tweek")}</a></h5></div>
+          </div>
+        </div>
       <Carousel responsive={responsive}>
       {movie.length > 0 &&
         movie.map((item, index) => {
@@ -118,6 +145,7 @@ export default function Example() {
           );
         })}
         </Carousel>
+      </div>
     </div>
   );
 }
